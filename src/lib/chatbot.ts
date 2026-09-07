@@ -2,8 +2,9 @@
 export const openChatbot = () => {
   if (typeof window === 'undefined') return;
 
+  const w = window as any;
+
   const tryAPIs = () => {
-    const w = window as any;
     const candidates = [
       w.BotPenguin,
       w.botpenguin,
@@ -19,12 +20,13 @@ export const openChatbot = () => {
       try { api.openWidget?.(); } catch {}
       try { api.expand?.(); } catch {}
       try { api.launch?.(); } catch {}
+      try { api.start?.(); } catch {}
     }
   };
 
   const tryPostMessage = () => {
     const iframes = Array.from(
-      document.querySelectorAll('iframe[src*="botpenguin"], iframe[src*="window-"], iframe[src*="bp-"], iframe[id*="botpenguin"], iframe[id*="bp-"]')
+      document.querySelectorAll('#BotPenguin-messenger, iframe[src*="botpenguin"], iframe[src*="window-"], iframe[id*="BotPenguin"]')
     ) as HTMLIFrameElement[];
     let sent = false;
     for (const iframe of iframes) {
@@ -43,30 +45,34 @@ export const openChatbot = () => {
     return sent;
   };
 
+  const ensureMessengerVisible = () => {
+    const messenger = document.getElementById('BotPenguin-messenger') as HTMLIFrameElement | null;
+    if (!messenger) return false;
+    // Remove any hidden/collapsed classes and ensure it's on screen
+    messenger.classList.remove('scale-out-br', 'hidden', 'bp-hidden');
+    messenger.classList.add('scale-in-br');
+    messenger.style.display = 'block';
+    messenger.style.visibility = 'visible';
+    messenger.style.opacity = '1';
+    messenger.style.pointerEvents = 'auto';
+    return true;
+  };
+
   const tryClickLauncher = () => {
     const selectors = [
-      '.bp-widget-btn',
-      '.bp-launcher',
-      '.bp-fab',
-      '.bp-webchat-widget-launcher',
-      '.bp-widget-launcher',
-      '.bp-chat-widget-launcher',
-      '.bp-messenger-widget',
-      '[class*="bp-widget"][role="button"]',
-      '[class*="bp-launcher"]',
-      '[class*="bp-fab"]',
-      'button[aria-label*="chat" i]',
-      'button[title*="chat" i]',
-      'div[role="button"][class*="launcher"]',
-      'div[role="button"][class*="botpenguin"]',
-      '[data-botpenguin]',
-      '#bp-widget-btn',
-      '#bp-launcher',
+      '[id^="botpenguin-launcher-"] [class*="launcher-image"]',
+      '[id^="botpenguin-launcher-"] [class*="launcherImage"]',
+      '[class*="botpenguin-launcher-image"]',
+      '[class*="botpenguin-launcherImage"]',
+      '[id^="botpenguin-launcher-"]',
+      '.botpenguin-left',
+      '.botpenguin-right',
+      '.BotPenguin-chat',
     ];
     for (const sel of selectors) {
       const els = Array.from(document.querySelectorAll(sel)) as HTMLElement[];
       for (const el of els) {
-        if (el.offsetParent !== null) {
+        if (el.offsetParent !== null || el.getBoundingClientRect().width > 0 || el.getBoundingClientRect().height > 0) {
           console.log('Opening chatbot via selector:', sel);
           el.click();
           el.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
@@ -91,14 +97,20 @@ export const openChatbot = () => {
 
   ensureScript();
 
+  // Try immediately in case widget is already loaded
+  tryAPIs();
+  ensureMessengerVisible();
+  const immediateClick = tryClickLauncher();
+  if (immediateClick) return;
+
   // Retry for a few seconds to allow widget to initialize
   const start = Date.now();
   const maxMs = 6000;
   const interval = 250;
 
-  tryAPIs();
   const timer = setInterval(() => {
     tryAPIs();
+    ensureMessengerVisible();
     const clicked = tryClickLauncher();
     const posted = tryPostMessage();
     if (clicked || posted) {
