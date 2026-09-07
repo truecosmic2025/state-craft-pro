@@ -134,6 +134,16 @@ export default {
             backgroundPosition: "200% 0",
           },
         },
+        "pulse-glow": {
+          "0%, 100%": {
+            transform: "scale(1)",
+            boxShadow: "0 0 0 0 hsl(var(--primary) / 0.4)",
+          },
+          "50%": {
+            transform: "scale(1.02)",
+            boxShadow: "0 0 24px 8px hsl(var(--primary) / 0.25)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.3s ease-out",
@@ -143,6 +153,7 @@ export default {
         "scale-in": "scale-in 0.4s ease-out",
         float: "float 6s ease-in-out infinite",
         shimmer: "shimmer 3s linear infinite",
+        "pulse-glow": "pulse-glow 2.5s ease-in-out infinite",
       },
     },
   },
