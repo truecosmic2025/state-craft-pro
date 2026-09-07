@@ -32,20 +32,22 @@ export const BookingSection = () => {
       <div className="container max-w-4xl mx-auto">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-            <span className="text-gradient">Book Your Free Session</span>
+            <span className="text-gradient">Book Your 1:1 Consultation with Robert Meade</span>
           </h2>
-          <p className="text-xl text-foreground/80">Start a conversation to see if we're a fit</p>
+          <p className="text-xl text-foreground/80">You're in the right place.</p>
         </div>
 
         <GlassCard className="p-8 md:p-12 animate-fade-in">
           <div className="text-center max-w-2xl mx-auto">
             <MessageSquare className="w-16 h-16 text-primary mx-auto mb-6" />
             <h3 className="text-2xl md:text-3xl font-display font-bold mb-4">
-              Let's Talk About Your Goals
+              Start the Chat & Book Your Consultation
             </h3>
             <p className="text-lg text-foreground/70 mb-8">
-              Click the chat icon to start a conversation. Our AI assistant will ask you a few questions 
-              to understand your needs and help you schedule your free session.
+              Click the button below to start a short chat. We'll ask you a few quick questions and help you book your consultation with Robert.
+            </p>
+            <p className="text-md text-foreground/60 mb-8">
+              It only takes a couple of minutes.
             </p>
             <div className="glass-card p-6 text-left">
               <p className="text-sm font-semibold text-foreground/90 mb-3">What to expect:</p>
