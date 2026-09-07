@@ -93,6 +93,20 @@ All colors MUST be HSL.
   }
 }
 
+/* Keep BotPenguin chat window hidden until the CTA triggers it */
+#BotPenguin-messenger {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: scale(0.95) translateY(20px) !important;
+  transition: opacity 0.3s ease, transform 0.3s ease, pointer-events 0.3s ease !important;
+}
+
+#BotPenguin-messenger.bp-open {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: scale(1) translateY(0) !important;
+}
+
 @layer utilities {
   .glass-card {
     @apply backdrop-blur-xl bg-white/[0.05] border border-white/[0.1] rounded-2xl;
