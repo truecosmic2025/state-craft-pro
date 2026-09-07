@@ -50,7 +50,7 @@ export const openChatbot = () => {
     if (!messenger) return false;
     // Remove any hidden/collapsed classes and ensure it's on screen
     messenger.classList.remove('scale-out-br', 'hidden', 'bp-hidden');
-    messenger.classList.add('scale-in-br');
+    messenger.classList.add('scale-in-br', 'bp-open');
     messenger.style.display = 'block';
     messenger.style.visibility = 'visible';
     messenger.style.opacity = '1';
