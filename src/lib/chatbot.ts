@@ -95,6 +95,26 @@ export const openChatbot = () => {
     }
   };
 
+  // Also open the Claudde widget (additive): find its shadow-DOM host and
+  // click the widget's own launcher/open button, retrying until it mounts.
+  const openClaudde = () => {
+    const start = Date.now();
+    const maxMs = 6000;
+    const timer = setInterval(() => {
+      const host = document.querySelector('[data-claudde-host], #claudde-widget, [id*="claudde"], [class*="claudde"]') as HTMLElement | null;
+      let clicked = false;
+      if (host?.shadowRoot) {
+        const launcher = host.shadowRoot.querySelector('button, [role="button"], [class*="launcher"], [class*="toggle"], [class*="open"]') as HTMLElement | null;
+        if (launcher) {
+          launcher.click();
+          clicked = true;
+        }
+      }
+      if (clicked || Date.now() - start > maxMs) clearInterval(timer);
+    }, 250);
+  };
+  openClaudde();
+
   ensureScript();
 
   // Try immediately in case widget is already loaded
