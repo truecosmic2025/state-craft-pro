@@ -1,7 +1,7 @@
 import { GlassCard } from "./GlassCard";
 import { CTAButton } from "./CTAButton";
 import { Sparkles } from "lucide-react";
-import { openChatbot } from "@/lib/chatbot";
+import { openClaudde } from "@/lib/claudde";
 
 export const FinalCTA = () => {
 
@@ -31,7 +31,7 @@ export const FinalCTA = () => {
               and leave with clarity and a plan for your next best step.
             </p>
 
-            <CTAButton variant="primary" onClick={openChatbot} className="inline-flex max-w-full">
+            <CTAButton variant="primary" onClick={openClaudde} className="inline-flex max-w-full">
               Book Your Free 1:1 with Robert
             </CTAButton>
           </div>

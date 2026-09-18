@@ -1,7 +1,7 @@
 import { GlassCard } from "./GlassCard";
 import { CTAButton } from "./CTAButton";
 import { CheckCircle } from "lucide-react";
-import { openChatbot } from "@/lib/chatbot";
+import { openClaudde } from "@/lib/claudde";
 
 export const FeelsLike = () => {
   const feelings = [
@@ -50,7 +50,7 @@ export const FeelsLike = () => {
         </GlassCard>
 
         <div className="text-center">
-          <CTAButton variant="primary" onClick={openChatbot} className="inline-flex">
+          <CTAButton variant="primary" onClick={openClaudde} className="inline-flex">
             Experience It Tonight — Book Free
           </CTAButton>
         </div>

@@ -1,7 +1,7 @@
 import { GlassCard } from "./GlassCard";
 import { CTAButton } from "./CTAButton";
 import { X, Check } from "lucide-react";
-import { openChatbot } from "@/lib/chatbot";
+import { openClaudde } from "@/lib/claudde";
 
 export const ProblemPromise = () => {
   const problems = [
@@ -49,7 +49,7 @@ export const ProblemPromise = () => {
                 </li>
               ))}
             </ul>
-            <CTAButton variant="primary" onClick={openChatbot} className="w-full">
+            <CTAButton variant="primary" onClick={openClaudde} className="w-full">
               Book Your Free 1:1 Session
             </CTAButton>
           </GlassCard>

@@ -1,7 +1,7 @@
 import { GlassCard } from "./GlassCard";
 import { CTAButton } from "./CTAButton";
 import { Star } from "lucide-react";
-import { openChatbot } from "@/lib/chatbot";
+import { openClaudde } from "@/lib/claudde";
 import testimonialAlison from "@/assets/testimonial-alison.jpg";
 import testimonialCecil from "@/assets/testimonial-cecil.jpg";
 import testimonialIzabelle from "@/assets/testimonial-izabelle.jpg";
@@ -68,7 +68,7 @@ export const Testimonials = () => {
         </div>
 
         <div className="text-center px-4">
-          <CTAButton variant="secondary" onClick={openChatbot} className="inline-flex max-w-full">
+          <CTAButton variant="secondary" onClick={openClaudde} className="inline-flex max-w-full">
             Book Now — Limited Spots This Week
           </CTAButton>
         </div>
