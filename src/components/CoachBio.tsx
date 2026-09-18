@@ -2,7 +2,7 @@ import { GlassCard } from "./GlassCard";
 import { CTAButton } from "./CTAButton";
 import { CheckCircle } from "lucide-react";
 import robertMeadeImage from "@/assets/robert-meade.jpg";
-import { openChatbot } from "@/lib/chatbot";
+import { openClaudde } from "@/lib/claudde";
 
 export const CoachBio = () => {
   const coachingPoints = [
@@ -64,7 +64,7 @@ export const CoachBio = () => {
                 <p className="text-sm text-primary mt-3 font-semibold">— Neville Goddard</p>
               </div>
 
-              <CTAButton variant="primary" onClick={openChatbot} className="w-full text-sm md:text-base">
+              <CTAButton variant="primary" onClick={openClaudde} className="w-full text-sm md:text-base">
                 Book with Robert — Free 30 Minutes
               </CTAButton>
             </div>

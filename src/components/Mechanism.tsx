@@ -1,7 +1,7 @@
 import { GlassCard } from "./GlassCard";
 import { CTAButton } from "./CTAButton";
 import { Target, Image, Moon, MessageSquare, RotateCcw } from "lucide-react";
-import { openChatbot } from "@/lib/chatbot";
+import { openClaudde } from "@/lib/claudde";
 
 export const Mechanism = () => {
   const steps = [{
@@ -55,7 +55,7 @@ export const Mechanism = () => {
             <strong>Result:</strong> A daily rhythm that <span className="text-primary font-semibold">stabilises state</span>, 
             so behaviour and opportunities naturally align.
           </p>
-          <CTAButton variant="primary" onClick={openChatbot}>
+          <CTAButton variant="primary" onClick={openClaudde}>
             Book Your Consultation
           </CTAButton>
         </GlassCard>

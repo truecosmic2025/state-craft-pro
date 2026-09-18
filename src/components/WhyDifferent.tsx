@@ -1,7 +1,7 @@
 import { GlassCard } from "./GlassCard";
 import { CTAButton } from "./CTAButton";
 import { Zap, Clock, Ban, Lightbulb } from "lucide-react";
-import { openChatbot } from "@/lib/chatbot";
+import { openClaudde } from "@/lib/claudde";
 
 export const WhyDifferent = () => {
   const differences = [
@@ -59,7 +59,7 @@ export const WhyDifferent = () => {
         </div>
 
         <div className="text-center">
-          <CTAButton variant="primary" onClick={openChatbot} className="inline-flex">
+          <CTAButton variant="primary" onClick={openClaudde} className="inline-flex">
             Get Your Free Next-Step Session
           </CTAButton>
         </div>

@@ -1,7 +1,7 @@
 import { GlassCard } from "./GlassCard";
 import { CTAButton } from "./CTAButton";
 import { Heart, DollarSign, Smile } from "lucide-react";
-import { openChatbot } from "@/lib/chatbot";
+import { openClaudde } from "@/lib/claudde";
 import useCaseLove from "@/assets/use-case-love.jpg";
 import useCaseCareer from "@/assets/use-case-career.jpg";
 import useCasePeace from "@/assets/use-case-peace.jpg";
@@ -72,7 +72,7 @@ export const ChooseYourEnd = () => {
         </div>
 
         <div className="text-center">
-          <CTAButton variant="primary" onClick={openChatbot} className="inline-flex">
+          <CTAButton variant="primary" onClick={openClaudde} className="inline-flex">
             Start with a Free 1:1
           </CTAButton>
         </div>
